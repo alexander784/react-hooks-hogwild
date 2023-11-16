@@ -3,7 +3,7 @@ import React from "react";
 const HogTile = ({ name, image, onClick, selected }) => (
   <div className={`hog-tile ${selected ? "selected" : ""}`}onClick={onClick}>
     <h2>{name}</h2>
-    <img src={image.url} alt="" />
+    <img src={image.url} alt="image.alt" />
 
     {selected && (
         <div className="hog-details">
