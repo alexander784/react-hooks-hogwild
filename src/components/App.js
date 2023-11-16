@@ -14,7 +14,7 @@ function App() {
 
   // function to handle the Click event
   const handleHogClick = (hog) => {
-    setSelectedHog(hog);
+    setSelectedHog(selectedHog === hog ? null : hog);
   };
 
   const handleToggleGreased = () => {
@@ -52,19 +52,12 @@ function App() {
           key={hog.name}
 		  name={hog.name}
 		  image={hog.image}
+		  selected={selectedHog === hog}
           onClick={() => handleHogClick(hog)}
         />
       ))}
 
-      {selectedHog && (
-        <div className="hog-details">
-          <h2>{selectedHog.name} Details</h2>
-          <p>Specialty: {selectedHog.specialty}</p>
-          <p>Weight: {selectedHog.weight}</p>
-          <p>Greased: {selectedHog.greased ? "Yes" : "No"}</p>
-          <p>Highest Medal Achieved: {selectedHog["highest medal achieved"]}</p>
-        </div>
-      )}
+      
     </div>
   );
 }
